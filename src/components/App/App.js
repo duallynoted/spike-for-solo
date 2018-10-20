@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import UserForm from '../UserForm/UserForm';
 
 class App extends Component {
   render() {
@@ -7,7 +8,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Spike for Solo Project</h1>
-          
+          <UserForm />
         </header>
       </div>
     );
