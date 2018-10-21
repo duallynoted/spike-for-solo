@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const spikeRouter = require('./routes/spike-router')
 
 //globals
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 //uses
 app.use(bodyParser.json());
 app.use(bodyParser({extended:true}));

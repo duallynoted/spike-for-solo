@@ -3,6 +3,8 @@ let router = express.Router();
 const pool = require('../module/pool')
 
 router.get('/', (req, res) => {
+    console.log('here',req);
+    
     pool.query(`SELECT * FROM "user_info";`)
         .then((results) => {
             res.send(results.rows);
@@ -23,12 +25,6 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })//end POST pool query
 });//end POST call server side
-
-
-
-
-
-
 
 
 module.exports = router;
