@@ -12,7 +12,7 @@ class UserList extends Component {
         return (
             <div>
                 <h3>Users</h3>
-                {/* <table>
+                <table>
                     <thead>
                         <tr>
                             <th>
@@ -24,20 +24,15 @@ class UserList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.reduxState.plantList.map(plant => {
-                            return <tr key={plant.id}>
-                                <td>{plant.name}</td>
-                                <td>{plant.kingdom}</td>
-                                <td>{plant.clade}</td>
-                                <td>{plant.order}</td>
-                                <td>{plant.family}</td>
-                                <td>{plant.subfamily}</td>
-                                <td>{plant.genus}</td>
-                                <td><Button color="secondary" variant="contained" onClick={this.handleDelete(plant.id)}>Delete</Button></td>
+                        {this.props.reduxState.userList.map(user => {
+                            return <tr key={user.id}>
+                                <td>{user.first_name}</td>
+                                <td>{user.last_name}</td>
+                                {/* <td><Button color="secondary" variant="contained" onClick={this.handleDelete(plant.id)}>Delete</Button></td> */}
                             </tr>
                         })}
                     </tbody>
-                </table> */}
+                </table>
                 {/* <div>
                     {this.state.map(user => (<li key={user.firstName}>{user.lastName}, {user.firstName} is a Team Member.</li>))}
                 </div> */}
