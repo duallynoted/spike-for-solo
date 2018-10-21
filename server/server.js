@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const spikeRouter = require('./routes/spike-router')
+const spikeRouter = require('./routes/spike-router');
 
 //globals
 const PORT = process.env.PORT || 5000;

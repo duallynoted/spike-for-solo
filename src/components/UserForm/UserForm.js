@@ -17,7 +17,7 @@ class UserForm extends Component {
                 firstName: event.target.value,
             }
         });
-    }
+    };
     handleLastNameChange = (event) => {
         console.log(event.target.value);
         this.setState({
@@ -26,7 +26,7 @@ class UserForm extends Component {
                 lastName: event.target.value,
             }
         });
-    }
+    };
 
     handleButtonClick = (event) => {
         console.log(this.state);
@@ -41,7 +41,7 @@ class UserForm extends Component {
         }).then((response) => {
             console.log(response.data);
         }).catch((error) => {
-            alert('Error getting user')
+            alert('Error getting users')
             console.log('error', error);
         });
     };
@@ -57,7 +57,7 @@ class UserForm extends Component {
             <div className="App">
                 {JSON.stringify(this.state)}
                 <br />
-                {this.state.user.firstName} {this.state.user.city}
+                {/* {this.state.user.firstName} {this.state.user.lastName} */}
 
                 <br />
                 <p>
