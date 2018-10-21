@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
 
 class UserForm extends Component {
 
@@ -32,16 +34,16 @@ class UserForm extends Component {
         console.log(this.state);
 
     };
-    
+
     getUsers = () => {
-        console.log('spike');        
+        console.log('spike');
         axios({
             method: 'GET',
             url: '/spike'
         }).then((response) => {
             console.log(response.data);
         }).catch((error) => {
-            alert('Error getting users'+ error);
+            alert('Error getting users' + error);
             console.log('error', error);
         });
     };
@@ -49,7 +51,7 @@ class UserForm extends Component {
     componentDidMount() {
         this.getUsers();
         console.log('component mounted');
-        
+
     };
 
     render() {
@@ -57,19 +59,24 @@ class UserForm extends Component {
             <div className="App">
                 {JSON.stringify(this.state)}
                 <br />
-                {/* {this.state.user.firstName} {this.state.user.lastName} */}
+                {this.state.user.firstName} {this.state.user.lastName}
 
                 <br />
                 <p>
-                <input value={this.state.user.firstName} onChange={this.handleFirstNameChange} placeholder="First Name"/>
-                <input value={this.state.user.lastName} onChange={this.handleLastNameChange} placeholder="Last Name" />
-                <button value={this.state} onClick={this.handleButtonClick} >Add Name</button>
+                    <input value={this.state.user.firstName} onChange={this.handleFirstNameChange} placeholder="First Name" />
+                    <input value={this.state.user.lastName} onChange={this.handleLastNameChange} placeholder="Last Name" />
+                    <button value={this.state} onClick={this.handleButtonClick} >Add Name</button>
                 </p>
+                
             </div>
         );
     }
 }
 
-export default UserForm;
+const mapReduxStateToProps = reduxState => ({
+    reduxState,
+});
+
+export default connect()(UserForm);
 
 

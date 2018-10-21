@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import UserForm from '../UserForm/UserForm';
+import UserList from '../UserList/UserList';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Spike for Solo Project</h1>
           <UserForm />
+          <UserList />
         </header>
       </div>
     );
