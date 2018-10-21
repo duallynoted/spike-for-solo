@@ -8,7 +8,7 @@ const spikeRouter = require('./routes/spike-router');
 const PORT = process.env.PORT || 5000;
 //uses
 app.use(bodyParser.json());
-app.use(bodyParser({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('server'));
 app.use('/spike', spikeRouter)
 //spins
