@@ -41,7 +41,7 @@ class UserForm extends Component {
         }).then((response) => {
             console.log(response.data);
         }).catch((error) => {
-            alert('Error getting users')
+            alert('Error getting users'+ error);
             console.log('error', error);
         });
     };

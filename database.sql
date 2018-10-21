@@ -1,4 +1,4 @@
---create a database called 'heavier_load'
+--create a database called 'spike_solo'
 
 --creates user data
 CREATE TABLE "user_info" (
