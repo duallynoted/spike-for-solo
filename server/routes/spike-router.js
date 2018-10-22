@@ -3,7 +3,8 @@ let router = express.Router();
 const pool = require('../module/pool')
 
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "user_info";`)
+    pool.query(`SELECT * FROM "user_info"
+    ORDER BY "id";`)
         .then((results) => {
             res.send(results.rows);
         }).catch((error) => {   
@@ -32,7 +33,9 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     let id = req.params.id;
     let body = req.body;
-    pool.query(`UPDATE "user_info" SET "first_name"=$1, "last_name"=$2 WHERE "id"=$3;`, [body.first_name, body.last_name, id])
+    console.log(body);
+    
+    pool.query(`UPDATE "user_info" SET "first_name"=$1, "last_name"=$2 WHERE "id"=$3;`, [body.firstName, body.lastName, id])
     .then(() => {
         res.sendStatus(200);
     }).catch(error => {

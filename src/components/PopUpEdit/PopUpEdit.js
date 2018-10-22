@@ -13,8 +13,8 @@ class PopUpEdit extends React.Component {
   state = {
     open: false,
     id: this.props.user.id, //this might be newUser
-    firstName: this.props.user.firstName,
-    lastName: this.props.user.lastName,
+    firstName: this.props.user.first_name, //this might be first_name
+    lastName: this.props.user.last_name,//this might be last_name
   };
 
 handleChangeFor = propertyName => event => {

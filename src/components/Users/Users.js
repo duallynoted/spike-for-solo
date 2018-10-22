@@ -10,10 +10,10 @@ class Users extends Component {
         return (
             <tr>
                 <td>
-                    {this.props.reduxState.firstName}
+                    {this.props.user.first_name}
                 </td>
                 <td>
-                    {this.props.reduxState.lastName}
+                    {this.props.user.last_name}
                 </td>
                 <td><PopUpEdit user={this.props.user} /></td>
             </tr>
@@ -26,3 +26,4 @@ const mapStateToProps = reduxState => ({
 });
 
 export default connect(mapStateToProps)(Users);
+

@@ -37,6 +37,8 @@ function* updateUser(action){
     try {
         yield call(axios.put, `/spike/${action.payload.id}`, action.payload);
         yield put({ type: 'FETCH_USERS' });
+        console.log('ACTIONDOTPAYLOAD', action.payload);
+        
     } catch (error) {
         console.log('error updating user', error);
     }
@@ -49,6 +51,8 @@ const userList = (state = [], action) => {
     switch (action.type) {
         case 'SET_USERS':
             return action.payload
+        // case 'FETCH_USERS':
+        //     return 
         default:
             return state;
     };
