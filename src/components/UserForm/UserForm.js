@@ -24,6 +24,7 @@ class UserForm extends Component {
         event.preventDefault();
         this.props.dispatch({ type: 'ADD_USER', payload: this.state.newUser })
         this.setState({
+            ...this.state.newUser,
             newUser: {
                 firstName: '',
                 lastName: '',
@@ -43,7 +44,6 @@ class UserForm extends Component {
                     <input value={this.state.newUser.lastName} onChange={this.handleChangeFor('lastName')} placeholder="Last Name" />
                     <input type="submit" value="Submit"/>
                 </form>
-                {this.state.newUser.firstName}
             </div>
         );
     }

@@ -12,6 +12,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('FETCH_USERS', fetchUsers)
     yield takeEvery('ADD_USER', addUser)
+    yield takeEvery('UPDATE_USER', updateUser)
 };
 
 function* fetchUsers() {
@@ -31,6 +32,15 @@ function* addUser(action) {
         console.log('error adding user', error);
     }
 };
+
+function* updateUser(action){
+    try {
+        yield call(axios.put, `/spike/${action.payload.id}`, action.payload);
+        yield put({ type: 'FETCH_USERS' });
+    } catch (error) {
+        console.log('error updating user', error);
+    }
+}
 
 
 const sagaMiddleware = createSagaMiddleware();

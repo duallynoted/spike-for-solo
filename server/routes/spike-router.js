@@ -22,13 +22,24 @@ router.post('/', (req, res) => {
     VALUES ($1,$2);`, queryValues)
         .then((results) => {
             console.log('HEEEEEEEYYYY', results);
-            res.send(results.rows);
-            
+            res.send(results.rows);            
         }).catch((error) => {
             console.log('Error POSTING user from PostgreSQL', error);
             res.sendStatus(500);
         })//end POST pool query
 });//end POST call server side
+
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+    let body = req.body;
+    pool.query(`UPDATE "user_info" SET "first_name"=$1, "last_name"=$2 WHERE "id"=$3;`, [body.first_name, body.last_name, id])
+    .then(() => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('error updating user', error);
+        res.sendStatus(500);
+    });//end PUT pool query
+});//end PUT call server side
 
 
 module.exports = router;
